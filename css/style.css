@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.hamburger {
+    display: none;
+    width: 60px;
+    height: 45px;
+    position: relative;
+    margin: 30px auto;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: #d3531a;
+    border-radius: 9px;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0px;
+    transform-origin: left center;
+}
+
+.hamburger span:nth-child(2) {
+    top: 18px;
+    transform-origin: left center;
+}
+
+.hamburger span:nth-child(3) {
+    top: 36px;
+    transform-origin: left center;
+}
+
+.hamburger.opened span:nth-child(1) {
+    transform: rotate(45deg);
+    top: -3px;
+    left: 8px;
+  }
+  
+.hamburger.opened span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+}
+  
+.hamburger.opened span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 39px;
+    left: 8px;
+}
+
+nav {
+    max-width: 1440px;
+    margin: 30px auto;
+    text-align: right;
+}
+
+nav.active {
+    display: block;
+}
+
+nav a {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #555;
+    padding: 10px;
+    margin: 0 20px;
+}
+
+nav a.order {
+    padding: 10px 30px;
+    border: 2px solid #555;
+    margin-right: 50px;
+    margin-left: 80px;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    transition: .2s;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #555;
+    color: #000;
+}
+
+nav a.order:hover {
+    background-color: crimson;
+    color: #fff;
+}
+
+header {
+    height: 40vh;
+    background-image: url('../img/pizzalogo.jpg');
+    background-size: cover;
+    overflow: hidden;
+}
+
+header h1 {
+    padding: 0 6rem;
+    font-size: 6rem;
+    color: #fff;
+    text-align: center;
+    line-height: 40vh;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    word-spacing: 30px;
+    text-shadow: 3px 3px #000;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: default;
+    transition: .4s
+}
+
+main {
+    max-width: 1440px;
+    margin: 5vh auto;
+    font-size: 0;
+}
+
+main p.description {
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 0 30px 50px 30px;
+    line-height: 180%;
+}
+section.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+main div.feature {
+    flex-basis: 33.33%;
+    min-width: 320px;
+    max-width: 100%;
+}
+
+main div.image1, main div.image2, main div.image3 {
+    height: 200px;
+    margin: 20px 30px;
+    border: 2px solid #000;
+    background-position: center;
+    background-size: 120%;
+    background-repeat: no-repeat;
+    transition: .3s;
+}
+
+main div.image1 {
+    background-image: url('../img/ciasto.jpg');
+}
+
+main div.image2 {
+    background-image: url('../img/piec.jpg');
+}
+
+main div.image3 {
+    background-image: url('../img/dowoz.jpg');
+}
+
+main div.image1:hover,
+main div.image2:hover,
+main div.image3:hover {
+    background-size: 150%;
+    opacity: .7;
+}
+
+main h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #222;
+}
+
+footer {
+    background-color: #000;
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+    padding: 2rem 2rem;
+    font-size: 2rem;
+}
+
+.menu-bg {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.menu-bg .menu-modal {
+    position: relative;
+    text-align: left;
+    margin: 25px;
+    padding: 20px 30px 15px;
+    background-color: #fff;
+    max-width: 990px;
+    max-height: 500px;
+    overflow: auto;
+    border: 15px solid #fff;
+    border-radius: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.menu-bg .menu-modal h2 {
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.menu-bg .menu-modal ol {
+    font-size: 1.8rem;
+    padding: 0;
+    color: #000;
+}
+
+.menu-bg .menu-modal ol li {
+    margin-bottom: .8rem;
+    padding-left: 3px;
+}
+
+.menu-bg .menu-modal-wrapper {
+    position: relative;
+}
+
+.menu-bg .menu-modal-wrapper .menu-modal-close {
+    position: absolute;
+    top: 35px;
+    right: 46px;
+    z-index: 9999;
+    font-size: 3rem;
+    color: #000;
+    cursor: pointer;
+    text-align: right;
+}
+
+.menu-bg .menu-modal-wrapper .menu-modal-close:hover {
+    color: #b61929;
+}
+
+.menu-modal::-webkit-scrollbar {
+    width: .4rem;
+}
+ 
+.menu-modal::-webkit-scrollbar-thumb {
+    background-color: #8b8f91;
+    outline: 1px solid #000;
+}
+
+@media (max-width: 991px) and (min-width: 781px) {
+    header h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 780px) and (min-width: 415px) {
+    header {
+        height: 40vh;
+    }
+    header h1 {
+        font-size: 4rem;
+        line-height: 20vh;
+    }
+}
+
+@media (max-width: 700px) and (orientation: landscape) {
+    .hamburger {
+        display: block;
+        width: 60px;
+        height: 45px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav a {
+        display: block;
+        text-align: center;
+    }
+
+    nav a.order {
+        margin: 30px 80px;
+    }
+}
+
+@media (max-width: 414px)  {
+    .hamburger {
+        display: block;
+        width: 60px;
+        height: 45px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    header {
+        height: 30vh;
+    }
+    
+    header h1 {
+        font-size: 3rem;
+        letter-spacing: 4px;
+        line-height: 15vh;
+    }
+
+    nav a {
+        display: block;
+        text-align: center;
+    }
+
+    nav a.order {
+        margin: 30px 80px;
+    }
+}
